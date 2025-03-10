@@ -1,0 +1,116 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "preLaunchTask": "cargo_build_debug",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "name": "probe-rs-debugger-main",
+            // "server": "127.0.0.1:50001", // For connecting to an existing probe-rs-debugger process
+            "chip": "STM32F103C8Tx",
+            "cwd": "${workspaceFolder}",
+            "coreConfigs": [
+                {
+                    "programBinary": "target/thumbv7em-none-eabihf/debug/stm32wb55-examples",
+                    "coreIndex": 0,
+                    
+                    "rttEnabled": true,
+                    "rttChannelFormats": [
+                        {
+                            "dataFormat": "String",
+                            "channelNumber": 0,
+                            "showTimestamps": true
+                        }
+                    ],
+                },
+            ],
+            "runtimeExecutable": "/Users/mordor/.cargo/bin/probe-rs",
+            "runtimeArgs": ["dap-server"],
+            "flashingConfig": {
+              "flashingEnabled": true,
+              "haltAfterReset": false,
+              "formatOptions": {
+                "format": "elf" 
+              }
+            },
+            "connectUnderReset": false,
+            "consoleLogLevel": "Console" //Info, Debug
+            //"speed": 24000, 
+            //"probe": "VID:PID:<Serial>", 
+        },
+        {
+            "preLaunchTask": "cargo_build_debug",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "name": "probe-rs-debugger-example",
+            // "server": "127.0.0.1:50001", // For connecting to an existing probe-rs-debugger process
+            "chip": "STM32F103C8Tx",
+            "cwd": "${workspaceFolder}",
+            "coreConfigs": [
+                {
+                    "programBinary": "target/thumbv7em-none-eabihf/debug/examples/i2c_scan",
+                    "coreIndex": 0,
+                    
+                    "rttEnabled": true,
+                    "rttChannelFormats": [
+                        {
+                            "dataFormat": "String",
+                            "channelNumber": 0,
+                            "showTimestamps": true
+                        }
+                    ],
+                },
+            ],
+            "runtimeExecutable": "/Users/mordor/.cargo/bin/probe-rs",
+            "runtimeArgs": ["dap-server"],
+            "flashingConfig": {
+              "flashingEnabled": true,
+              "haltAfterReset": false,
+              "formatOptions": {
+                "format": "elf" 
+              }
+            },
+            "connectUnderReset": false,
+            "consoleLogLevel": "Console" //Info, Debug
+            //"speed": 24000, 
+            //"probe": "VID:PID:<Serial>", 
+        },
+        {
+            "preLaunchTask": "cargo_build_release",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "name": "probe-rs-release-main",
+            // "server": "127.0.0.1:50001", // For connecting to an existing probe-rs-debugger process
+            "chip": "STM32F103C8Tx",
+            "cwd": "${workspaceFolder}",
+            "coreConfigs": [
+                {
+                    "programBinary": "target/thumbv7em-none-eabihf/release/stm32wb55-examples",
+                    "coreIndex": 0,
+                    
+                    "rttEnabled": true,
+                    "rttChannelFormats": [
+                        {
+                            "dataFormat": "String",
+                            "channelNumber": 0,
+                            "showTimestamps": true
+                        }
+                    ],
+                },
+            ],
+            "runtimeExecutable": "/Users/mordor/.cargo/bin/probe-rs",
+            "runtimeArgs": ["dap-server"],
+            "flashingConfig": {
+              "flashingEnabled": true,
+              "haltAfterReset": false,
+              "formatOptions": {
+                "format": "elf" 
+              }
+            },
+            "connectUnderReset": false,
+            "consoleLogLevel": "Console" //Info, Debug
+            //"speed": 24000,
+            //"probe": "VID:PID:<Serial>",
+        },
+    ]
+}
